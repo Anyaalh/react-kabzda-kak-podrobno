@@ -1,8 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 
 type AccordionType = {
     title?: string
-    collapsed: boolean
+
 }
 
 type AccordionTitleType = {
@@ -10,24 +10,14 @@ type AccordionTitleType = {
 }
 
 
-export function Accordion(props: AccordionType) {
-    if (props.collapsed) {
-        return <AccordionTitle accordionTitle={props.title}/>
-    } else {
-        return (
-            <div>
-                <AccordionTitle accordionTitle={props.title}/>
-                <AccordionBody/>
-            </div>
-        )
-    }
-}
 
-export function Accordion2(props: AccordionType) {
+export function UncontrolledAccordion(props: AccordionType) {
+    const [collapsed, setCollapsed] = useState(false)
     return (
         <div>
             <AccordionTitle accordionTitle={props.title}/>
-            {!props.collapsed && <AccordionBody/>}
+            <button onClick={() => setCollapsed(!collapsed)}>TOGGLE</button>
+            {!collapsed && <AccordionBody/>}
         </div>
     )
 

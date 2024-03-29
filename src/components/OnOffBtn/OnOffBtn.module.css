@@ -1,0 +1,29 @@
+.on{
+    background-color: green;
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+}
+
+.off{
+    background-color: red;
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+}
+
+.offCircle{
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+.onCircle{
+    background-color: green;
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    border-radius: 50%;
+}
