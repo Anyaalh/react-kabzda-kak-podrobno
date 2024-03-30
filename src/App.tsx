@@ -28,8 +28,8 @@ function App() {
             {/*<OnnOffBtn/>*/}
             {/*<OnOff />*/}
 
-            <UncontrolledAccordion title={"Users"}/>
-            <UncontrolledRating />
+            {/*<UncontrolledAccordion title={"Users"}/>*/}
+            {/*<UncontrolledRating />*/}
 
         </div>
     );
