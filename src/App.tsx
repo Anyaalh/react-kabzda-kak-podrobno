@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import {Accordion, Accordion2} from "./components/Accordion/Accordion";
-import {Rating} from "./components/Rating/Rating";
+import {Accordion} from "./components/Accordion/Accordion";
+import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {OnnOffBtn} from "./components/OnOffBtn/OnnOffBtn";
 import {OnOff} from "./components/OnnOff/OnOff";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
@@ -12,6 +12,10 @@ type PageTitleType = {
 }
 
 function App() {
+
+    // let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+    let [collapsed, setCollapsed] = useState(false)
+
     return (
         <div className="App">
             {/*<PageTitle title={"This is APP-component"}/>*/}
@@ -29,8 +33,11 @@ function App() {
             {/*<OnOff />*/}
 
             {/*<UncontrolledAccordion title={"Users"}/>*/}
-            {/*<UncontrolledRating />*/}
+            <UncontrolledRating />
 
+
+            {/*<Rating value={ratingValue} onClick={setRatingValue}/>*/}
+            {/*<Accordion collapsed={collapsed} title={"Acc"} setCollapsed={setCollapsed}/>*/}
         </div>
     );
 }
@@ -41,7 +48,6 @@ function PageTitle(props: PageTitleType) {
         <>{props.title}</>
     )
 }
-
 
 
 export default App;

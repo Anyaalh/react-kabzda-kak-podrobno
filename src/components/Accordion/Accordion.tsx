@@ -3,39 +3,29 @@ import React from "react";
 type AccordionType = {
     title?: string
     collapsed: boolean
+    setCollapsed: (collapsed: boolean) => void
 }
 
 type AccordionTitleType = {
     accordionTitle?: string
+    collapsed: boolean
+    onClick: (collapsed: boolean) => void
 }
 
 
 export function Accordion(props: AccordionType) {
-    if (props.collapsed) {
-        return <AccordionTitle accordionTitle={props.title}/>
-    } else {
-        return (
-            <div>
-                <AccordionTitle accordionTitle={props.title}/>
-                <AccordionBody/>
-            </div>
-        )
-    }
-}
-
-export function Accordion2(props: AccordionType) {
     return (
         <div>
-            <AccordionTitle accordionTitle={props.title}/>
+            <AccordionTitle accordionTitle={props.title} collapsed={props.collapsed} onClick={props.setCollapsed}/>
             {!props.collapsed && <AccordionBody/>}
         </div>
     )
-
 }
+
 
 function AccordionTitle(props: AccordionTitleType) {
     return (
-        <h3>{props.accordionTitle}</h3>
+        <h3 onClick={()=> props.onClick(!props.collapsed)}>{props.accordionTitle}</h3>
     )
 }
 
