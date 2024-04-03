@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 import './App.css';
 import {Accordion} from "./components/Accordion/Accordion";
 import {Rating, RatingValueType} from "./components/Rating/Rating";
-import {OnnOffBtn} from "./components/OnOffBtn/OnnOffBtn";
-import {OnOff} from "./components/OnnOff/OnOff";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
+import {OnOff} from "./components/OnOff/OnOff";
+import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
 
 type PageTitleType = {
     title: string
@@ -15,6 +15,8 @@ function App() {
 
     // let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
     let [collapsed, setCollapsed] = useState(false)
+    let [on, setOn] = useState(false)
+
 
     return (
         <div className="App">
@@ -29,15 +31,15 @@ function App() {
             {/*<Accordion title={"Users"} collapsed={false}/>*/}
             {/*<Accordion2 title={"acc"} collapsed={false}/>*/}
 
-            {/*<OnnOffBtn/>*/}
-            {/*<OnOff />*/}
 
             {/*<UncontrolledAccordion title={"Users"}/>*/}
-            <UncontrolledRating />
+            {/*<UncontrolledRating />*/}
 
 
             {/*<Rating value={ratingValue} onClick={setRatingValue}/>*/}
             {/*<Accordion collapsed={collapsed} title={"Acc"} setCollapsed={setCollapsed}/>*/}
+            {/* <OnOff on={on} setOn={setOn}/>*/}
+            {/*<UncontrolledOnOff onChange={setOn}/> {on.toString()}*/}
         </div>
     );
 }
