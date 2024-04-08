@@ -16,7 +16,10 @@ type AccordionTitleType = {
 export function Accordion(props: AccordionType) {
     return (
         <div>
-            <AccordionTitle accordionTitle={props.title} collapsed={props.collapsed} onClick={props.setCollapsed}/>
+            <AccordionTitle
+                accordionTitle={props.title}
+                collapsed={props.collapsed}
+                onClick={props.setCollapsed}/>
             {!props.collapsed && <AccordionBody/>}
         </div>
     )
@@ -25,7 +28,7 @@ export function Accordion(props: AccordionType) {
 
 function AccordionTitle(props: AccordionTitleType) {
     return (
-        <h3 onClick={()=> props.onClick(!props.collapsed)}>{props.accordionTitle}</h3>
+        <h3 onClick={(event)=> props.onClick(!props.collapsed)}>{props.accordionTitle}</h3>
     )
 }
 

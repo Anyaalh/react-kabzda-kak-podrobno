@@ -1,16 +1,21 @@
 import React, {useState} from "react";
+import {RatingValueType} from "../Rating/Rating";
 
 type StarType = {
     selected: boolean
     value: 1 | 2 | 3 | 4 | 5
     setValue: (value: 1 | 2 | 3 | 4 | 5) => void
+    onChange?: (value: RatingValueType)=> void
 }
+ type UncontrolledRatingType = {
+    defaultValue?: RatingValueType
+     onChange?: (value: RatingValueType)=> void
+ }
 
 
+export function UncontrolledRating(props: UncontrolledRatingType) {
 
-export function UncontrolledRating() {
-
-    const [value, setValue] = useState(0)
+    const [value, setValue] = useState<RatingValueType>(props.defaultValue ? props.defaultValue : 0)
 
 
     return (
