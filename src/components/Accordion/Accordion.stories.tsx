@@ -10,11 +10,14 @@ export default {
     component: Accordion,
 };
 
-const onChangehandler = action('obChange')
+const onChangehandler = action('onChange')
+const onClickCallback = action("some item was clicked")
 
 export const CollapsedAccordion = () => {
     return(
         <Accordion
+            onClick={onClickCallback}
+            items={[]}
             collapsed={true}
             title={"Collapsed Accordion"}
             setCollapsed={onChangehandler}/>
@@ -23,6 +26,8 @@ export const CollapsedAccordion = () => {
 export const OpenedAccordion = () => {
     return(
         <Accordion
+            onClick={onClickCallback}
+            items={[ {title: "ann", value: 1}, {title: "Ann", value: 2}, {title: "Anya", value: 3}]}
             collapsed={false}
             title={"Opened Accordion"}
             setCollapsed={onChangehandler}/>
@@ -33,6 +38,8 @@ export const AccordionDemo = () => {
     const [collapsed, setCollapsed] = useState(false)
     return(
         <Accordion
+            onClick={onClickCallback}
+            items={[ {title: "ann", value: 1}, {title: "Ann", value: 2}, {title: "Anya", value: 3}]}
             collapsed={collapsed}
             title={"Demo Accordion"}
             setCollapsed={()=>{

@@ -4,6 +4,8 @@ type AccordionType = {
     title?: string
     collapsed: boolean
     setCollapsed: (collapsed: boolean) => void
+    items: InputType[]
+    onClick: (value: any)=>void
 }
 
 type AccordionTitleType = {
@@ -12,6 +14,16 @@ type AccordionTitleType = {
     onClick: (collapsed: boolean) => void
 }
 
+type InputType = {
+    title: string
+    value: any
+}
+
+
+type AccordionBodyType = {
+    items: InputType[]
+    onClick: (value: any)=>void
+}
 
 export function Accordion(props: AccordionType) {
     return (
@@ -20,7 +32,7 @@ export function Accordion(props: AccordionType) {
                 accordionTitle={props.title}
                 collapsed={props.collapsed}
                 onClick={props.setCollapsed}/>
-            {!props.collapsed && <AccordionBody/>}
+            {!props.collapsed && <AccordionBody onClick={props.onClick} items={props.items}/>}
         </div>
     )
 }
@@ -32,12 +44,10 @@ function AccordionTitle(props: AccordionTitleType) {
     )
 }
 
-function AccordionBody() {
+function AccordionBody(props: AccordionBodyType) {
     return (
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            {props.items.map((i, index )=> <li onClick={ ()=> props.onClick(i.value)} key={index}>{i.title}</li>)}
         </ul>
     )
 }
