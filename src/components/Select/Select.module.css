@@ -1,0 +1,19 @@
+.select{
+    border: 1px solid black;
+    width: 100px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.active{
+    border: 1px solid blue;
+    width: 100px;
+}
+
+.list {
+    border: 1px solid black;
+    width: 100px;
+
+}
