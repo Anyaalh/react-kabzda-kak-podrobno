@@ -32,7 +32,7 @@ function App() {
             {/*<Accordion2 title={"acc"} collapsed={false}/>*/}
 
 
-            {/*<UncontrolledAccordion title={"Users"}/>*/}
+            <UncontrolledAccordion title={"Users"}/>
             {/*<UncontrolledRating />*/}
 
 

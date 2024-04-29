@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 
 export default {
     title: "ReactMemo demo"
@@ -22,11 +22,19 @@ export const Example1 = () => {
     const [counter, setCounter] = useState(0)
     const [users, setUsers] = useState(["Ann", "Olga"])
 
+    const addUser = () => {
+        const newUsers = [...users, "Sveta " + new Date().getTime()]
+        setUsers(newUsers)
+    }
+
     return (
         <>
-            <button onClick={()=>setCounter(counter+1)}>+</button>
+            <button onClick={() => setCounter(counter + 1)}>+</button>
             <NewMessageCounter count={counter}/>
             <Users users={users}/>
         </>
     )
 }
+
+
+

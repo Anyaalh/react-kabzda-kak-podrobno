@@ -57,23 +57,32 @@ export const SelectWithDimych = (props: SelectPropsType) => {
     const selectItem = props.items.find(i => i.value === props.value)
     const hoveredItem = props.items.find(i => i.value === hoveredElementValue)
 
+    const [counter, setCounter] = useState(0)
+
+
     return (
+
         <div className={styles.select} onKeyUp={onKeyPressHandler} tabIndex={0}>
-            <span className={styles.main} onClick={toggleItems}>{selectItem && selectItem.title}</span>
-            {
-                active &&
-                <div className={styles.items}>
-                    {props.items.map(i => <div
-                        onMouseEnter={() => {
-                            setHoveredElementValue(i.value)
-                        }}
-                        className={`${styles.item} ${hoveredItem === i ? styles.selected : ""}`}
-                        key={i.value}
-                        onClick={() => onItemClick(i.value)}
-                    >{i.title}
-                    </div>)}
-                </div>
-            }
+            {counter}
+            <button onClick={()=>setCounter(counter+1)}>add 1</button>
+            <div>
+                <span className={styles.main} onClick={toggleItems}>{selectItem && selectItem.title}</span>
+                {
+                    active &&
+                    <div className={styles.items}>
+                        {props.items.map(i => <div
+                            onMouseEnter={() => {
+                                setHoveredElementValue(i.value)
+                            }}
+                            className={`${styles.item} ${hoveredItem === i ? styles.selected : ""}`}
+                            key={i.value}
+                            onClick={() => onItemClick(i.value)}
+                        >{i.title}
+                        </div>)}
+                    </div>
+                }
+            </div>
+
         </div>
     )
 }
